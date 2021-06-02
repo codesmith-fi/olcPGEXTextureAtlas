@@ -2,8 +2,9 @@
 
 #define OLC_PGE_APPLICATION
 #include "pge/olcPixelGameEngine.h"
+
 #include <memory>
-#include "ImageAtlas.h"
+#include "olcPGEXTextureAtlas.h"
 #include "DebugLogger.h"
 
 // Override base class with your custom functionality
@@ -12,17 +13,22 @@ class PGEApplication: public olc::PixelGameEngine
 public:
 	PGEApplication()
 	{
-		// Name your application
-		sAppName = "PGEApplication";
+		LOG_INFO() << "PGEApplication created";
+		sAppName = "PGEApplication - TextureAtlas demo";
+	}
+
+	virtual ~PGEApplication() {
+		LOG_INFO() << "PGEApplication destroyed";
 	}
 
 public:
 	bool OnUserCreate() override
 	{
+		LOG_INFO() << "PGEApplication::OnUserCreate() initializing";
 		m_background = std::make_shared<olc::Sprite>("Assets\\desert.png");
 
 		std::shared_ptr<olc::Sprite> atlassprite = std::make_shared<olc::Sprite>("Assets\\soniccd.png");
-		m_atlas = std::make_unique<codesmith::TextureAtlas>(atlassprite, 11, 1);
+		m_atlas = std::make_unique<olc::TextureAtlas>(atlassprite, 11, 1);
 		m_frame = 0;
 		m_scale = 1.0f;
 		return true;
@@ -34,9 +40,11 @@ public:
 		std::int16_t wheel = GetMouseWheel();
 		if(wheel != 0) {
 			if (wheel > 0) {
+				LOG_INFO() << "OnUserUpdate() scaling up";
 				m_scale += 0.05f;
 			}
 			else if(m_scale > 0.05f){
+				LOG_INFO() << "OnUserUpdate() scaling down";
 				m_scale -= 0.05f;
 			}
 		}
@@ -53,11 +61,10 @@ public:
 			m_frame = 0;
 		}
 
-
 		return true;
 	}
 private:
-	std::unique_ptr<codesmith::TextureAtlas> m_atlas;
+	std::unique_ptr<olc::TextureAtlas> m_atlas;
 	std::shared_ptr<olc::Sprite> m_background;
 	std::uint16_t m_frame;
 	std::float_t m_scale;
