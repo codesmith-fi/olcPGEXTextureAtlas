@@ -63,6 +63,17 @@ public:
 
 		return true;
 	}
+
+	/**
+	 * If OnUserDestroy() returns false, the application will not exit, 
+	 * it keeps running.
+	 */
+	bool OnUserDestroy() override
+	{
+		LOG_INFO() << "PGEApplication::OnUserDestroy()";
+		return true;
+	}
+
 private:
 	std::unique_ptr<olc::TextureAtlas> m_atlas;
 	std::shared_ptr<olc::Sprite> m_background;
