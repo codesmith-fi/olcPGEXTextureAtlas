@@ -21,9 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{9abb1bdf-d00a-478c-acd0-998c7dee6b18}</ProjectGuid>
-    <RootNamespace>SpriteAtlas</RootNamespace>
+    <ProjectGuid>{78DD702F-DC8F-4B48-A2A8-2E9EAB3DE8F3}</ProjectGuid>
+    <RootNamespace>TextureAtlasDemo</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>TextureAtlasDemo</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,7 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SpriteAtlasAppPGE.cpp" />
+    <ClCompile Include="TextureAtlasAppPGE.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

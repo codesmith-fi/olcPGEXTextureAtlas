@@ -1,5 +1,5 @@
 /*
-	olcPGEX_AnimatedSprite.h
+	olcPGEX_TextureAtlas.h
 	+-------------------------------------------------------------+
 	|         OneLoneCoder Pixel Game Engine Extension            |
 	|                TextureAtlas - v0.5.0			              |
@@ -13,6 +13,8 @@
 	be drawn separately to form textures or animated sprites.
 	This class does not animate anything by itself, you must ask the
 	Draw() call to draw sub frames separately.
+
+	See the source file TextureAtlasAppPGE.cpp for an example how to use.
 
 	License (OLC-3)
 	~~~~~~~~~~~~~~~
