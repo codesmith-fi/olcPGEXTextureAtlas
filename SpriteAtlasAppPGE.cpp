@@ -22,8 +22,7 @@ public:
 		m_background = std::make_shared<olc::Sprite>("Assets\\desert.png");
 
 		std::shared_ptr<olc::Sprite> atlassprite = std::make_shared<olc::Sprite>("Assets\\soniccd.png");
-		m_atlas = std::make_unique<codesmith::ImageAtlas>(atlassprite, 11, 1);
-		m_atlas->setEngine(this);
+		m_atlas = std::make_unique<codesmith::TextureAtlas>(atlassprite, 11, 1);
 		m_frame = 0;
 		m_scale = 1.0f;
 		return true;
@@ -49,7 +48,7 @@ public:
 		};
 
 		DrawStringDecal(olc::vf2d(10.0f, 10.0f), statusTxt);
-		m_atlas->RenderSprite(pos, olc::vf2d(m_scale, m_scale), m_frame++, 0);
+		m_atlas->Draw(pos, olc::vf2d(m_scale, m_scale), m_frame++, 0);
 		if (m_frame >= m_atlas->columns()) {
 			m_frame = 0;
 		}
@@ -58,7 +57,7 @@ public:
 		return true;
 	}
 private:
-	std::unique_ptr<codesmith::ImageAtlas> m_atlas;
+	std::unique_ptr<codesmith::TextureAtlas> m_atlas;
 	std::shared_ptr<olc::Sprite> m_background;
 	std::uint16_t m_frame;
 	std::float_t m_scale;
