@@ -23,12 +23,14 @@ public:
 	std::uint16_t rows() const { return m_rows; }
 	std::uint16_t columns() const { return m_columns; }
 	std::uint16_t sprites() const { return m_spriteCount; }
+	olc::vi2d partialSize() const { return m_partialSize; }
 
 	void setEngine(olc::PixelGameEngine* engine) {
 		m_engine = engine;
 	}
 
-	void RenderSprite(const olc::vi2d& pos, std::uint16_t x, std::uint16_t y);
+	void RenderSprite(const olc::vi2d& pos, const olc::vf2d& scale, 
+		std::uint16_t x, std::uint16_t y);
 
 private: // Hidden
 	ImageAtlas() : m_engine(nullptr), m_columns(0), m_rows(0), m_spriteCount(0) {};
